@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=on"/>
+
+    <title>Ресурсы по Изучению front-end и back-end программирование</title>
+
+    <style>
+            header {
+            text-align: center;
+            background: rgb(243, 243, 181);
+        }
+        
+        iframe {
+            border: 1px solid black;
+            width: 100%;
+        }
+        
+        .output {
+            background: #eee;
+        }
+        
+        section {
+            background: #b7e9bb;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            background: #b7e1ee;
+        }
+        
+        p {
+            font-size: 20px;
+        }
+        
+        ul {
+            /*background: #0b0b35;*/
+            width: 250px;
+            /*height: 300px;*/
+            text-align: left;
+            /*padding-left: 500px;*/
+            /*padding-right: 300px;*/
+            margin: 1% auto;
+            font-size: 30px;
+            color: #04020c;
+        }
+        
+        #timedate {
+            font: 30px "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+            text-align: center;
+            width: 50%;
+            margin: 50px auto;
+            color: #030303;
+            /* border: 5px solid #ed1f24;
+ padding: 5px;*/
+    </style>
+
+</head>
+
+<body onLoad="initClock()" id="html">
+
+    <iframe src="" frameborder="0"></iframe>
+
+    <script src="./scripts/html.js">
+    </script>
+
+
+
+    <script src="./scripts/motor-apps-clock.js">
+    </script>
+    <script>
+        // START CLOCK SCRIPT
+
+        Number.prototype.pad = function(n) {
+            for (var r = this.toString(); r.length < n; r = 0 + r);
+            return r;
+        };
+
+        function updateClock() {
+            let now = new Date();
+            /*  var milli = now.getMilliseconds(),*/
+            let sec = now.getSeconds(),
+                min = now.getMinutes(),
+                hou = now.getHours(),
+                mo = now.getMonth(),
+                dy = now.getDate(),
+                yr = now.getFullYear();
+            let months = ["Января", "Февраля", "Марта", "Апреля", "Майя", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+            let tags = ["d", "mon", "y", "h", "m", "s", "mi"],
+                corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+            for (var i = 0; i < tags.length; i++)
+                document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+        }
+
+        function initClock() {
+            updateClock();
+            window.setInterval("updateClock()", 1);
+        }
+
+        // END CLOCK SCRIPT
+    </script>
+</body>
+
+</html>
