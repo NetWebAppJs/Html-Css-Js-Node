@@ -214,7 +214,7 @@ html.innerHTML = ` <header>
 
         <ul>
             <li>Погода:
-                <a href="./pogodaa.html">Чтобы узнать погоду нажмите здесь!</a></li>
+                <a href="https://netwebappjs.github.io/pogoda.html">Чтобы узнать погоду нажмите здесь!</a></li>
         </ul>
 
     </footer>`;
